@@ -8,4 +8,4 @@ LABEL "com.github.actions.description"="Run make with avr-toolchain"
 LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="black"
 
-ENTRYPOINT ["ls", "-l"]
+ENTRYPOINT ["make"]
