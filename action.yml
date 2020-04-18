@@ -1,5 +1,10 @@
 name: 'AVR make'
 description: 'Build avr based project with avr toolchain'
+author: 'Denis Bazhenov <dotsid@gmail.com>'
+branding:
+  icon: 'terminal'  
+  color: 'black'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'lpodkalicki/avr-toolchain'
+  entrypoint: 'make'
