@@ -1,0 +1,5 @@
+name: 'AVR make'
+description: 'Build avr based project with avr toolchain'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
