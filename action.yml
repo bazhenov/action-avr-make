@@ -15,8 +15,20 @@ inputs:
     default: ''
     required: false
     type: string
-runs:
-  using: docker
-  image: docker://lpodkalicki/avr-toolchain
-  entrypoint: make 
-  args: ['--file=${{inputs.dir}}/Makefile','${{inputs.target}}']
+jobs:
+  build-default-target:
+    if: "${{ inputs.dir == '' }}"
+    runs:
+      using: docker
+      image: docker://lpodkalicki/avr-toolchain
+      entrypoint: make 
+      if 
+      args: ['--directory=${{inputs.dir}}']
+  build-selected-target:
+    if: "${{ inputs.dir != '' }}"
+    runs:
+      using: docker
+      image: docker://lpodkalicki/avr-toolchain
+      entrypoint: make 
+      if 
+      args: ['--directory=${{inputs.dir}}','${{inputs.target}}']
