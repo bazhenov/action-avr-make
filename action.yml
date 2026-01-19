@@ -4,7 +4,14 @@ author: Denis Bazhenov <dotsid@gmail.com>
 branding:
   icon: terminal
   color: black
+inputs:
+  dir:
+    description: directory in which to run make
+    default: '.'
+    required: false
+    type: string
 runs:
   using: docker
   image: docker://lpodkalicki/avr-toolchain
-  entrypoint: make
+  entrypoint: make 
+  args: ['--file=${{inputs.dir}}/Makefile']
