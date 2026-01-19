@@ -4,7 +4,8 @@ This action provides an easy way to build AVR project using AVR-toolchain (e.g. 
 
 ## Usage
 
-Use the input `dir` to specify the directory of the Makefile relative to the project root.  Or, omit the `dir` input if the Makefile is in the project root. Default target (usually the first one in a file) is run.
+Use the `dir` input to specify the directory of the `Makefile` relative to the project root.  Paths in the `Makefile` should still be specified relative to the project root.  If `dir` is omitted, the `Makefile` is assumed to be located in the project root.
+Use the `target` input to specify the `make` target.  Or, omit the `target` input to make the default target (usually the first one in a file).
 
 Example of the workflow.
 
