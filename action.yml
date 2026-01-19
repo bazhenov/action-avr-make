@@ -15,20 +15,8 @@ inputs:
     default: ''
     required: false
     type: string
-jobs:
-  build-default-target:
-    if: "${{ inputs.dir == '' }}"
-    runs:
-      using: docker
-      image: docker://lpodkalicki/avr-toolchain
-      entrypoint: make 
-      if 
-      args: ['--directory=${{inputs.dir}}']
-  build-selected-target:
-    if: "${{ inputs.dir != '' }}"
-    runs:
-      using: docker
-      image: docker://lpodkalicki/avr-toolchain
-      entrypoint: make 
-      if 
-      args: ['--directory=${{inputs.dir}}','${{inputs.target}}']
+runs:
+  using: docker
+  image: docker://lpodkalicki/avr-toolchain
+  entrypoint: make 
+  args: ['--directory=${{inputs.dir}}','${{inputs.target}}']
