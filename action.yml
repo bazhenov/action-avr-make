@@ -10,8 +10,13 @@ inputs:
     default: '.'
     required: false
     type: string
+  target:
+    description: target to make
+    default: ''
+    required: false
+    type: string
 runs:
   using: docker
   image: docker://lpodkalicki/avr-toolchain
   entrypoint: make 
-  args: ['--file=${{inputs.dir}}/Makefile']
+  args: ['--file=${{inputs.dir}}/Makefile ${{inputs.target}}']
