@@ -12,11 +12,16 @@ inputs:
     type: string
   target:
     description: target to make
-    default: ''
+    default: '-d'
     required: false
     type: string
+env:
+  #ARGS_ENV: ${{ inputs.dir!=null && ['--directory=AVR_Code','01'] || ['--directory=AVR_Code'] }}
+  ARGS_ENV: ['--directory=AVR_Code','01']
 runs:
   using: docker
   image: docker://lpodkalicki/avr-toolchain
   entrypoint: make 
-  args: ['--directory=${{inputs.dir}}','${{inputs.target}}']
+  args:
+    - '--directory=${{inputs.dir}}'
+    - ${{inputs.target}}
