@@ -12,7 +12,7 @@ inputs:
     type: string
   target:
     description: target to make
-    default: '-d'
+    default: '--debug' # dummy option that has no impact; default target will be selected
     required: false
     type: string
 env:
