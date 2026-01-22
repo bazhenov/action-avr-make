@@ -5,7 +5,7 @@ This action provides an easy way to build AVR project using AVR-toolchain (e.g. 
 ## Usage
 
 Use the `dir` input to specify the directory of the `Makefile` relative to the project root.  If `dir` is omitted, the `Makefile` is assumed to be located in the project root.
-Use the `target` input to specify the `make` target.  Or, omit the `target` input to make the default target (usually the first one in a file).
+Use the `target` input to specify the `make` target.
 
 Example of the workflow.
 
@@ -27,4 +27,5 @@ jobs:
     - uses: bazhenov/action-avr-make@v1.1
         with:
            dir: path/to/dir_with_Makefile
+           target: all
 ```
